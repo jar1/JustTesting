@@ -1,13 +1,15 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import static org.junit.Assert.*;
+
+import org.junit.After;
+import org.junit.Test;
 
 public class PASSED_1Test
 {
 	@Test
 	public void testCurrentTimePASSED() 
 	{
-		Assert.assertNotNull( System.currentTimeMillis() );		
+		assertNotNull( System.currentTimeMillis() );		
 	}
 }

@@ -5,11 +5,11 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Test;
 
-public class FAILED_1Test
+public class PASSED_1Test2
 {
 	@Test
-	public void testCurrentTimeFAILED() 
+	public void testCurrentTimePASSED2() 
 	{
-		assertFalse( System.currentTimeMillis() );		
+		assertNotNull( System.currentTimeMillis() );		
 	}
 }

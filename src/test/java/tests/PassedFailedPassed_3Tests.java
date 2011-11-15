@@ -1,26 +1,27 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import static org.junit.Assert.*;
 
+import org.junit.After;
+import org.junit.Test;
 
 public class PassedFailedPassed_3Tests
 {
 	@Test
 	public void testCurrentTimeFirstTestPASSED() 
 	{
-		Assert.assertNotNull( System.currentTimeMillis() );		
+		assertNotNull( System.currentTimeMillis() );		
 	}
 	
 	@Test
 	public void testCurrentTimeSecondTestFAILED() 
 	{
-		Assert.assertNull( System.currentTimeMillis() );		
+		assertFalse( System.currentTimeMillis() );		
 	}
 	
 	@Test
 	public void testCurrentTimeThirdTestPASSED() 
 	{
-		Assert.assertNotNull( System.currentTimeMillis() );		
+		assertNotNull( System.currentTimeMillis() );		
 	}	
 }
