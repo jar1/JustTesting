@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Examples Test Suite" verbose="1" parallel="false" thread-count="1" data-provider-thread-count="3">
+
+    <test name="Examples">
+        <classes>
+            <class name="tests.TestCurrentTime_3Tests_PFP"></class>
+			<class name="tests.TestCurrentTime _1Tests_P"></class>
+			<class name="tests.TestCurrentTime _1Tests_F"></class>
+           </classes>
+    </test>
+ 
+</suite>
+
