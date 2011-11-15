@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter lang="es" version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:ns5="http://www.w3.org/2000/svg"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook" id="chapter.4">
+	<title>Configuración del <application>TestLink</application></title>
+	
+	<section>
+
+		<title>Instalando <application>TestLink</application></title>
+	
+		<para>La primera etapa de la configuración de integración es instalar y configurar el 
+		<application>TestLink</application>. En primer lugar, comenzar por descargar el archivo 
+		testlink-1.9.2.tar.gz en el site http://www.teamst.org. Descompactar utilizando 
+		tar -zxvf testlink-1.9.2.tar.gz. Se extraerán los archivos <application>TestLink</application>
+		para la carpeta actual. Mover este directorio al directorio raíz del servidor HTTP y abrir
+		la URL <emphasis>http://localhost/testlink-1.9.2</emphasis> en el browser.</para>
+		
+		<mediaobject id="testlink_002">
+			<imageobject role="html">
+				<imagedata align="center" fileref="../media/testlink_002.png" contentwidth="800px" format="PNG" />
+			</imageobject>
+		</mediaobject>
+		
+		<mediaobject id="testlink_003">
+			<imageobject role="html">
+				<imagedata align="center" fileref="../media/testlink_003.png" contentwidth="800px" format="PNG" />
+			</imageobject>
+		</mediaobject>
+		
+		<!-- Tip: es posible utilizar los mismos comandos para Postgre SQL o MS SQL, 
+		solamente revise el manual del vendedor para entender cuáles son los comandos 
+		equivalentes. -->
+		
+		<para>Ahora el asistente de instalación le guiará a través del resto de la 
+		instalación. Es necesário una base de datos y dos contas creadas en MySQL antes de 
+		seguir adelante. Para crear la base de datos para el <application>TestLink</application> 
+		ejecute el comando siguiente en el prompt MySQL.</para>
+		
+		<programlisting><![CDATA[mysql> create database testlink192;]]></programlisting>
+		
+		<para>Ahora hay que crear el usuario <application>TestLink</application> que será utilizado 
+		para acceder a la base de datos.</para>
+		
+		<programlisting><![CDATA[mysql> grant all privileges on testlink192.* to 'testlink192' identified by 'testlink192';
+mysql> flush privileges;]]></programlisting>
+		
+		<para>Ahora siga las instrucciones en el asistente de instalación <application>TestLink</application> y cuando  
+		preguntado, utilize la información que acaba de crear en el <application>MySQL</application>. Para este ejemplo
+		es necesario tener acceso al servidor <application>MySQL</application> y también saber los datos de la cuenta 
+		de administrador.</para>
+
+		<para>
+			<mediaobject id="testlink_004">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_004.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_005">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_005.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_006">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_006.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Si todo há funcionado correctamente se le debes pedir para hacer el log in usando
+		<emphasis>admin:admin (user:password)</emphasis></para>
+		
+		<para><application>TestLink</application> contiene un archivo de configuración que se 
+		necesita modificar antes de seguir a la session siguiente. En 
+		<emphasis>$TESTLINK_HOME/config.inc.php</emphasis>, busque por  
+		<emphasis>$tlCfg->api->enabled</emphasis> y defina su valor para <emphasis>TRUE</emphasis>. 
+		Después busque por <emphasis>$g_attachments->order_by</emphasis> y defina su valor para 
+		<emphasis>" ORDER BY id ASC "</emphasis> (dejar los espacios en blanco antes y después de 
+		la cláusula de ordenación). La primera confirugación habilita la API <acronym>XML-RPC</acronym>
+		para acceso externo, y los últimos cambios de la columna en la que <application>TestLink</application> 
+		ordena los adjuntos. La precisión de la columna <emphasis>date_added</emphasis>  
+		en la tabla <emphasis>attachments</emphasis> se limita a los segundos, así que si agregas mas que dos 
+		archivos adjuntos al mismo tiempo los valores devueltos por la base de datos pueden ser inconsistentes</para>
+	
+	</section>
+	
+	<section>
+		
+		<title>Creación de un proyecto de pruebas ejemplo</title>
+		
+		<para>Al acceder por primera vez al <application>TestLink</application> se muestra un formulario
+		que permite la creación de un primer Proyecto de Pruebas. Es posible tener cuantos proyectos sea necesário.
+		Abajo del Proyecto de Pruebas es donde se va a crear los plans de pruebas, casos de pruebas, requisitos,
+		campos personalizados y otras entidades.</para>
+		
+		<para>
+			<mediaobject id="testlink_007">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_007.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Crear un proyecto de pruebas con nombre <emphasis>Mi primer proyecto</emphasis>, 
+		con prefijo <emphasis>MFP</emphasis> y asegúrese de que las siguientes opciones están marcadas: 
+		<emphasis>Enable Requirements feature</emphasis>, <emphasis>Enable Testing Priority</emphasis>, 
+		<emphasis>Enable Test Automation (API keys)</emphasis>, <emphasis>Enable Inventory</emphasis>, 
+		<emphasis>Active</emphasis> and <emphasis>Public</emphasis>. 
+		Hacer clic en <emphasis>Create</emphasis> para terminar.</para>
+		
+		<para>
+			<mediaobject id="testlink_008">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_008.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Si la pantalla siguiente no es mostrada regrese y verifique si no há sido olvidado 
+		ni una de las etapas anteriores.</para>
+		
+		<para>
+			<mediaobject id="testlink_009">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_009.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+	</section>
+	
+	<section>
+	
+		<title>Creación y asignación de los campos personalizados para la automatización</title>
+	
+		<para>Hacer clic en el ítem <emphasis>Proyécto</emphasis> del menú superior para ser redirigido 
+		a la pantalla principal. Ahora vamos a crear el campo personalizado que se utiliza para la 
+		automatización. Esta automatización es usada por el plug-in que vincula un caso de prueba 
+		automatizado del <application>TestLink</application> a un <emphasis>Resultado de Prueba</emphasis> 
+		de una serie de pruebas.</para>
+		
+		<para>
+			<mediaobject id="testlink_010">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_010.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_011">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_011.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Ahora sólo tenemos que asignar este campo personalizado que se utilizará en
+		nuestro proyecto de prueba. Regrese a la pantalla principal y haga click en 
+		<emphasis>Assign Custom Fields</emphasis>. Esto le llevará a una pantalla con 
+		la lista de los campos personalizados. Seleccione el campo personalizado de clase Java 
+		y haga click en el botón <emphasis>Assign</emphasis></para>
+
+		<para>
+			<mediaobject id="testlink_012">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_012.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+	
+	</section>
+	
+	<section>
+	
+		<title>Especificar las pruebas</title>
+		
+		<para>Para aquellos a quienes trabajan con pruebas esta parte deve ser 
+		un proceso sencillo. Lo que vamos a hacer ahora es crear una suite de pruebas 
+		y un caso de prueba. En el TestLink los casos de prueba siempre son mantenidos 
+		abajo de una suite de pruebas.</para>
+		
+		<para>De vuelta a la pantalla principal, en el menu superior hay la opción
+		<emphasis>Test Specification</emphasis>. Haga click en la opción. La pantalla de 
+		especificación de la prueba es sencilla. A la izquierda hay el navegador con los ajustes, 
+		filtros y el árbol de suites de pruebas y casos de pruebas. Comienza seleccionando en el 
+		proyecto de pruebas para ver las operaciones disponibles en las suites de pruebas.</para>
+		
+		<para>
+			<mediaobject id="testlink_013">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_013.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Crear la suite de pruebas que se desea. Este campo no es importante para nuestra guía. 
+		Una vez creada, la suite de pruebas se muestra en el árbol de la izquierda. Ahora se debe hazer 
+		clic en el conjunto de pruebas en el árbol para ver las operaciones de caso de prueba.</para>
+		
+		<para>
+			<mediaobject id="testlink_014">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_014.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Se debe crear un caso de prueba con cualquier título o resumen. La información 
+		importante en esta pantalla para la ejecución son los tipos de ejecución y la classe Java
+		(Campo customizado creado en la página anterior). En tipo de ejecución seleccione 
+		<emphasis>Automación</emphasis> y para la clase Java rellenar con el nombre de la clase Java
+		<emphasis>sample.Tests</emphasis>.</para>
+		
+		<para>
+			<mediaobject id="testlink_015">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_015.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_016">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_016.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_017">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_017.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_018">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_018.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+	
+	</section>
+	
+	
+	<section>
+		
+		<title>La última etapa: crear un plan de pruebas y adicionar casos de prueba</title>
+		
+		<para>Este es el último paso para la condiguración del <application>TestLink</application>. 
+		Sin embargo, antes del comienzo deste paso, hay un importante concepto en el 
+		<application>TestLink</application>, las <emphasis>Builds</emphasis>. En el 
+		<application>TestLink</application>, hay que crear un plan de pruebas delineando 
+		lo que y como se va a probar la aplicación en prueba. Una vez que haya un plan de 
+		pruebas es posible iniciar a adicionar los casos de prueba al plan de pruebas, 
+		y ejecutalos. Una build en el <application>TestLink</application> es la 
+		ejecución del plan de pruebas, y despues de su ejecución no se puede mas editar los casos 
+		de prueba desto plan de pruebas (no seria justo cambiar el ámbito o el criterio de salida 
+		de un caso de prueba después de el haber sido ejecutado) </para>
+		
+		<para>Regrese a la pantalla principal y haga clic en la opción 
+		<emphasis>Test Plan Management</emphasis>, disponible abajo del cuadro 
+		de plan de pruebas a la derecha de la pantalla. Crear un plan de pruebas con nombre 
+		<emphasis>Mi primer plan de pruebas</emphasis>, con cualquier descripción y asegurárse 
+		de que <emphasis>Active</emphasis> y <emphasis>Public</emphasis> are checked.</para>
+		
+		<para>
+			<mediaobject id="testlink_019">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_019.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>
+			<mediaobject id="testlink_020">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_020.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+	
+		<para>In the last box on the right of the screen, click on <emphasis>Add / Remove 
+		Test Cases</emphasis> and add the test case that you created to your test plan.</para>
+	
+		<para>
+			<mediaobject id="testlink_021">
+				<imageobject role="html">
+					<imagedata align="center" fileref="../media/testlink_021.png" contentwidth="800px" format="PNG" />
+				</imageobject>
+			</mediaobject>
+		</para>
+		
+		<para>Es necesario crear o no un build. Este paso es opcional. El plug-in automaticamente 
+		crea un nuevo build si ya no hay uno con el mismo nombre que proporcionaste en la pagina 
+		de configuración del <application>Jenkins</application>. Cuando regresar al plan de pruebas 
+		debe ser posible ver mas opciones disponibles en el cuadro del plan de pruebas y otros dos 
+		cuadros: Test Execution and Test Plan contents, así como otras opciones disponibles en el 
+		menú superior</para>
+		
+		<para>Hemos terminado con <application>TestLink</application> por ahora, el próximo paso es 
+		configurar el <application>Jenkins</application></para>
+	
+	</section>
+	
+</chapter>
