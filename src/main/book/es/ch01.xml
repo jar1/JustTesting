@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter lang="es" version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:ns5="http://www.w3.org/2000/svg"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	<title>Una introducción al <application>Jenkins</application></title>
+	
+	<para><application>Jenkins</application> 
+	(née <application>Hudson</application>) es un servidor de <emphasis>integración continua</emphasis> 
+	escrito en Java. Se puede descargalo de <ulink url="http://www.jenkins-ci.org">http://www.jenkins-ci.org</ulink> 
+	como un war ejecutable. Esto significa que es posible ejecutalo con el comando
+	<programlisting><![CDATA[java -jar jenkins.war]]></programlisting>. 
+	<application>Jenkins</application> viene con un	<application>Winstone</application> embebido 
+	pero también existe la opción de hacer el deploy en un servidor de aplicaciones como el 
+	<application>Tomcat</application> o el <application>JBoss</application>. <application>Jenkins</application> 
+	no hace la utilización de ni una base de datos para almacenar su configuración. Todo el contenido 
+	es guardado en archivos <acronym>XML</acronym> con la utilización de <application>XStream</application>.</para>
+	
+	<para>
+		<mediaobject id="jenkins_logo">
+			<imageobject role="html">
+				<imagedata align="center" fileref="../media/jenkins_logo.png" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</para>
+	
+	<para>Con <application>Jenkins</application> es posible crear, monitorar y programar 
+	<emphasis>Jobs</emphasis>. Existen <emphasis>Plug-ins</emphasis> disponibles para casi 
+	cualquier necesidade que se puede pensar, desde diferentes <acronym>SCM</acronym> 
+	(<application>git</application>, <application>mercury</application>, 
+	<application>SVN</application>, <application>CVS</application>) hasta 
+	la integración de sus builds con <application>Selenium</application>, 
+	<application>Gerrit</application>, <application>TestLink</application> y otras herramientas.</para>
+	
+	<para>Aqui está una lista resumida de las características de <application>Jenkins</application> 
+	que está disponible en 
+	<ulink url="http://wiki.jenkins-ci.org/display/JENKINS/TestLink+Plugin">Jenkins Wiki</ulink>:</para>
+	
+	<itemizedlist>
+		<listitem>
+			<para>Instalación sencilla</para>
+		</listitem>
+		<listitem>
+			<para>Fácil configuración</para>
+		</listitem>
+		<listitem>
+			<para>Change set support ( Contiene conjunto de configuración )</para>
+		</listitem>
+		<listitem>
+			<para>Permanent links</para>
+		</listitem>
+		<listitem>
+			<para>RSS/E-mail/Integración IM</para>
+		</listitem>
+		<listitem>
+			<para>After-the-fact-tagging</para>
+		</listitem>
+		<listitem>
+			<para>Informes de pruebas JUnit/TestNG</para>
+		</listitem>
+		<listitem>
+			<para>Builds distribuidos</para>
+		</listitem>
+		<listitem>
+			<para>File fingerprinting</para>
+		</listitem>
+		<listitem>
+			<para>Suporte a plugins</para>
+		</listitem>
+	</itemizedlist>
+	
+	<para>Para esta guia es necesario descargar la ultima versión del 
+	<application>Jenkins</application>. En el momento en que esta guia esta siendo produzida la versión corriente del 
+	<application>Jenkins</application> es <emphasis>1.413</emphasis>, no obstante es muy poco probable que lo que apriendas 
+	aqui no vá a funcionar con otras versiones del <application>Jenkins</application>. 
+	El equipo de desarrollo há hecho estupendo trabajo de compatibilidad entre versiones.</para>
+	
+	<para>
+		<mediaobject id="jenkins_001_01">
+			<imageobject role="html">
+				<imagedata align="center" fileref="../media/jenkins_001.png" contentwidth="800px" format="PNG" />
+			</imageobject>
+		</mediaobject>
+	</para>
+	
+	<para><application>Jenkins</application> está licenciado bajo la licencia  <acronym>MIT</acronym>  
+	y su código se encuentra alojado en  <application>github</application> - 
+	<ulink url="http://github.com/jenkinsci">http://github.com/jenkinsci</ulink>.</para>
+	
+</chapter>
