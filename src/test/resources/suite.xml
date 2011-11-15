@@ -4,9 +4,9 @@
 
     <test name="Examples">
         <classes>
-            <class name="tests.TestCurrentTime_3Tests_PFP"></class>
-			<class name="tests.TestCurrentTime_1Tests_P"></class>
-			<class name="tests.TestCurrentTime_1Tests_F"></class>
+            <class name="tests.PFP_3Tests"></class>
+			<class name="tests.PASSED_1Test"></class>
+			<class name="tests.FAILED_1Test"></class>
            </classes>
     </test>
  
