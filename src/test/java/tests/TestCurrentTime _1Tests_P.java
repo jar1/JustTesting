@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class TestCurrentTime _1Tests_P
+public class TestCurrentTime_1Tests_P
 {
 	@Test
 	public void testCurrentTimePASSED() 
