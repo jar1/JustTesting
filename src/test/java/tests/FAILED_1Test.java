@@ -1,15 +1,13 @@
 package tests;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class FAILED_1Test
 {
 	@Test
 	public void testCurrentTimeFAILED() 
 	{
-		assertFalse( System.currentTimeMillis() );		
+		Assert.assertFalse( System.currentTimeMillis() );		
 	}
 }
