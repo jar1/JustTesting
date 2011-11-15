@@ -8,6 +8,6 @@ public class FAILED_1Test
 	@Test
 	public void testCurrentTimeFAILED() 
 	{
-		Assert.assertFalse( System.currentTimeMillis() );		
+		Assert.assertNull( System.currentTimeMillis() );		
 	}
 }

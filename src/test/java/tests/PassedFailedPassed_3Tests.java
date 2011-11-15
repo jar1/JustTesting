@@ -14,7 +14,7 @@ public class PassedFailedPassed_3Tests
 	@Test
 	public void testCurrentTimeSecondTestFAILED() 
 	{
-		Assert.assertFalse( System.currentTimeMillis() );		
+		Assert.assertNull( System.currentTimeMillis() );		
 	}
 	
 	@Test
