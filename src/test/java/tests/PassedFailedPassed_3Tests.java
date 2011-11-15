@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class PFP_3Tests
+public class PassedFailedPassed_3Tests
 {
 	@Test
 	public void testCurrentTimeFirstTestPASSED() 
