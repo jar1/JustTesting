@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<abstract lang="es" version="5.0" xmlns="http://docbook.org/ns/docbook">
+	<para>Este libro es un proyecto de Software Libre que proporciona un mejor 
+	entendimiento acerca de como integrar Jenkins y Testlink. El nombre deste libro 
+	há sido inspirado por el patrón utilizado en la serie de libros de O'Reilly.</para>
+</abstract>

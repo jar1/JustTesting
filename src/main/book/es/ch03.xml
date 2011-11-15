@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<chapter lang="es" version="5.0" xmlns="http://docbook.org/ns/docbook"
+         xmlns:xlink="http://www.w3.org/1999/xlink"
+         xmlns:xi="http://www.w3.org/2001/XInclude"
+         xmlns:ns5="http://www.w3.org/2000/svg"
+         xmlns:ns4="http://www.w3.org/1998/Math/MathML"
+         xmlns:ns3="http://www.w3.org/1999/xhtml"
+         xmlns:db="http://docbook.org/ns/docbook">
+	<title>Integrando <application>Jenkins</application> y <application>TestLink</application></title>
+	
+	<para>Es importante explicar la dinámica detrás de la integración
+	entre <application>Jenkins</application> y <application>TestLink</application>. 
+	En primer lugar vamos a revisar algunos hechos importantes de las dos herramientas.</para>
+	
+	<para><application>Jenkins</application> es tiene su utilización muy sencilla y puede manejar
+	<emphasis>la ejecución de múltiplos jobs</emphasis>, <emphasis>la programación de jobs</emphasis> 
+	así como <emphasis>ejecuciones distribuidas</emphasis> (o todo junto: <emphasis>múltiplos jobs 
+	programados en un ambiente distribuido</emphasis>).</para>
+	
+	<para><application>TestLink</application> es poderoso para gerenciar pruebas, sean 
+	<emphasis>automatizadas</emphasis> o <emphasis>manuales</emphasis>. 
+	También permite organizar las pruebas en una agradable estrucutra jerárquica. 
+	No obstante, por su lenguaje de programación y arquitectura, 
+	<application>TestLink</application> no es muy adecuado para ejecutar o programar 
+	múltiples tareas en segundo plano.</para>
+	
+	<para>Hay diferentes maneras de automatizar las pruebas en el <application>TestLink</application>. 
+	Es posible armacenar las pruebas en el <application>SVN</application> y disparar la ejecución 
+	por un botón en el <application>TestLink</application>, de todos modos seria necesario implementar 
+	un mecanismo en el <application>TestLink</application> para monitorar la ejecución o para ir a un 
+	sistema diferente para ver lo que está pasando. O es posible escribir las pruebas en <acronym>PHP</acronym> 
+	y ponerlas junto al instalación del  <application>TestLink</application>, pero no es una tarea fácil 
+	ejecutar las tareas en diferentes procesos o threads en <acronym>PHP</acronym>. Por todas estas razones, 
+	la integración que te traemos en esta guía utiliza un enfoque más sencillo. Pruebas manuales y automatizadas 
+	son gerenciadas en el <application>TestLink</application>, mientras <application>Jenkins</application> es 
+	responsable para la ejecución e las pruebas automatizadas. Jenkins también es responsable por la actualización 
+	de los status de ejecución de pruebas en el <application>TestLink</application> así como subir los archivos 
+	adjuntos definidos. Esta integración se logra con <application>Jenkins TestLink Plugin</application>.</para>
+	
+	<para>Vamos a ver como se configura el ambiente para esta integración en los 
+	próximos capítulos. Mientras es bueno tener una buena explicación de cómo la 
+	integración funciona, es probable que sea mas sencillo comprender como el funciona
+	en la práctica. El resto de la guía explica como configurar <application>Jenkins</application> 
+	y  <application>TestLink</application> para ejecutar pruebas automatizadas de un 
+	proyecto de pruebas modelo. Este es un proyecto JAVA que utiliza 
+	<application>Maven</application> y <application>TestNG</application>. Se puede descargalo de
+	<ulink url="https://github.com/kinow/jenkins-testlink-plugin-the-definitive-guide/blob/master/sample-test-project.tar.gz?raw=true">
+	https://github.com/kinow/jenkins-testlink-plugin-the-definitive-guide/blob/master/sample-test-project.tar.gz?raw=true</ulink>.</para>
+	
+	<para><application>Jenkins TestLink Plug-in</application> está licenciado bajo la licencia
+	<acronym>MIT</acronym> License y su código se encuentra alojado en github - 
+	<db:link xlink:href="http://github.com/jenkinsci/testlink-plugin">http://github.com/jenkinsci/testlink-plugin</db:link>.</para>
+	
+</chapter>
