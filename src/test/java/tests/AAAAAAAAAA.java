@@ -6,7 +6,7 @@ import org.junit.Test;
 public class AAAAAAAAAA
 {
 	@Test
-	public void AAAAAAAAAA() 
+	public void a1() 
 	{
 		assertNotNull( System.currentTimeMillis() );		
 	}

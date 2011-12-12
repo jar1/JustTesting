@@ -1,13 +1,13 @@
 package tests;
 
-import org.testng.Assert;
-import org.testng.annotations.Test;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
 public class BBBBBBBBBB
 {
 	@Test
-	public void BBBBBBBBBB() 
+	public void b2() 
 	{
-		Assert.assertNotNull( System.currentTimeMillis() );		
+		assertNotNull( System.currentTimeMillis() );		
 	}
 }
