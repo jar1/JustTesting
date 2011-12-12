@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 @Suite.SuiteClasses({
 
 		AAAAAAAAAA.class,
-		BBBBBBBBBB.class,
+		BBBBBBBBBB.class
 
 })
 
