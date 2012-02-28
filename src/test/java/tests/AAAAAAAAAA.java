@@ -10,4 +10,16 @@ public class AAAAAAAAAA
 	{
 		assertNotNull( System.currentTimeMillis() );		
 	}
+	
+	@Test
+	public void a2() 
+	{
+		assertNull( System.currentTimeMillis() );		
+	}
+	
+	@Test
+	public void a3() 
+	{
+		assertNotNull( System.currentTimeMillis() );		
+	}
 }

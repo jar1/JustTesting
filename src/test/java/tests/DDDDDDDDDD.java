@@ -8,6 +8,6 @@ public class DDDDDDDDDD
 	@Test
 	public void d1() 
 	{
-		Assert.assertNull( System.currentTimeMillis() );		
+		assertNotNull( System.currentTimeMillis() );		
 	}
 }
