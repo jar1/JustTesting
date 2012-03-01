@@ -6,14 +6,14 @@ import org.junit.Test;
 public class TestClass1
 {
 	@Test
-	public void TestCase1() 
+	public void TestCase11() 
 	{
 		assertNotNull( System.currentTimeMillis() );		
 	}
 	
 	@Test
-	public void TestCase2() 
+	public void TestCase12() 
 	{
-		assertNotNull( System.currentTimeMillis() );		
+		assertNull( System.currentTimeMillis() );		
 	}
 }
