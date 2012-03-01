@@ -3,10 +3,10 @@ package tests;
 import static org.junit.Assert.*;
 import org.junit.Test;
 
-public class CCCCCCCCCC
+public class D1
 {
 	@Test
-	public void c3() 
+	public void d1() 
 	{
 		assertNotNull( System.currentTimeMillis() );		
 	}
